@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const monk = require('monk')
-const url = 'mongodb://jesseegbert:jesse1@ds041178.mlab.com:41178/awards';
+const url = 'mongodb://jesseegbert:jesse1@ds147344.mlab.com:47344/jesseegbertnau';
 const cors = require('cors')
 
 const db = monk(url)
@@ -11,15 +11,14 @@ db.then(() => {
   })
   
 const awards = db.get('awards')//variable can be named anything but needs to call('')exactly what is in the DB
-const email = db.get('email')
-const users = db.get('users')
+
 app.use(bodyParser.json())//takes strings and turns them into JSON
 app.use(cors())//so I can use 2 local hosts at the same time
 
 
 // GET method route
 
-app.get(':41178/awards', function (req, res) {
+app.get('', function (req, res) {
   const award_id = req.param('id');
   const award = req.param('award');
   const year = req.param('year');
@@ -28,7 +27,7 @@ app.get(':41178/awards', function (req, res) {
   });
   
 //   // POST method route
-  app.post('/', function (req, res) {
+  app.post('/awards', function (req, res) {
     const result = awards.insert(req.body)
     res.status(200).send(result)
   });

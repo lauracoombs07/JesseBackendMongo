@@ -13,8 +13,7 @@ db.then(() => {
   })
   
 const presentations = db.get('presentations')//variable can be named anything but needs to call('')exactly what is in the DB
-const email = db.get('email')
-const users = db.get('users')
+
 app.use(bodyParser.json())//takes strings and turns them into JSON
 app.use(cors())//so I can use 2 local hosts at the same time
 
