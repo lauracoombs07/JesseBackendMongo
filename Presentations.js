@@ -25,14 +25,29 @@ app.get('/presentations', async function (req, res) {
   });
   
 //   // POST method route
-  app.post('/presentations', function (req, res) {
-    const result = presentations.insert(req.body)
+  app.post('/presentations', async function (req, res) {
+    const result = await presentations.insert(req.body)
     res.status(200).send(result)
   });
 
+  
+
+// PUT OR PATCH method Route
+//get presentation by id
+
+//new form data
+
+//combine the old and new data  look up spread syntax spread old data
+//give it old info first then new overrides old
+//may need to change the order of the add a number
+app.put('/presentations', async function (req,res){
+    res.send('PUT request to home page')
+    const result = await presentations._id
+  });
+
+// DELETE Method Route
+//
+  app.delete('/presentations', function (req,res){
+    
+  });
   app.listen(port, () => console.log(`Example app listening on port ${port}!`))
-
-
-
-
-// export default presentations;
